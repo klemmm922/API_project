@@ -1,6 +1,6 @@
 import requests 
 import json
-from keyvault import keyvault
+from keyvault.keyvault import keyvault
 
 
 class searchMovieRequest:
@@ -9,6 +9,14 @@ class searchMovieRequest:
         
     @classmethod
     def get_movie_id(cls,name):
+
+        """
+        param cls: the class itself
+        param name: the name of the movie
+    
+        return the id of the movie
+        """
+
         result = requests.get(cls._base_url+"/SearchMovie/"+cls._api_key+"/"+name).content
         # but we don't want to return all the content of the request, we want to return only the id of the movie
         # so we need to parse the result
@@ -20,4 +28,8 @@ class searchMovieRequest:
 
         # we admit that we are going to return only the first one
 
-        return result["results"][0]["id"]
+        print(result["results"]["id"])
+
+        val = result["results"][0]["id"]
+
+        return val
