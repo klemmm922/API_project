@@ -1,5 +1,5 @@
 from package.boxOffAllTime import boxOffAllTime
-from package import movie
+from package.movie import movie
 
 # we want the rating of the boxOffice of all time movies
 
